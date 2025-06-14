@@ -17,33 +17,27 @@ let posts = [
   {
     id: uuidv4(),
     username: "CodeWithArjun",
-    content: "Finally cracked that Google interview! 6 months of LeetCode grind paid off. Starting as SDE-2 in Bangalore next month. Dreams do come true! 🚀"
+    content:
+      "Finally cracked that Google interview! 6 months of LeetCode grind paid off. Starting as SDE-2 in Bangalore next month. Dreams do come true! 🚀",
   },
   {
     id: uuidv4(),
     username: "PriyaInTech",
-    content: "Built my first React Native app for local vegetable vendors in Mumbai. Technology solving real problems hits different. Open sourcing it soon!"
+    content:
+      "Built my first React Native app for local vegetable vendors in Mumbai. Technology solving real problems hits different. Open sourcing it soon!",
   },
   {
     id: uuidv4(),
     username: "DevOpsRahul",
-    content: "Deployed 50+ microservices today using Kubernetes. Remember when we used to manually SSH into servers? Those were the days... not! 😅"
+    content:
+      "Deployed 50+ microservices today using Kubernetes. Remember when we used to manually SSH into servers? Those were the days... not! 😅",
   },
   {
     id: uuidv4(),
     username: "AIEnthusiast_Kavya",
-    content: "Just published my research paper on Hindi NLP models. Proud to contribute to making AI more accessible for Indian languages. Bharat ka AI! 🇮🇳"
+    content:
+      "Just published my research paper on Hindi NLP models. Proud to contribute to making AI more accessible for Indian languages. Bharat ka AI! 🇮🇳",
   },
-  {
-    id: uuidv4(),
-    username: "StartupVinay",
-    content: "From Tier-3 city to Y Combinator! Our fintech startup is helping rural farmers access micro-loans. Next stop: Series A funding round."
-  },
-  {
-    id: uuidv4(),
-    username: "TechLead_Sneha",
-    content: "Leading a team of 15 developers across Chennai and Hyderabad. Remote work changed everything, but Indian talent is conquering the world! 💪"
-  }
 ];
 
 app.get("/posts", (req, res) => {
@@ -84,7 +78,9 @@ app.delete("/posts/:id/", (req, res) => {
   posts = posts.filter((p) => id !== p.id);
   res.redirect("/posts");
 });
-
+app.get("/", (req, res) => {
+  res.redirect("/posts");
+});
 app.listen(port, () => {
   console.log("Request recived");
 });

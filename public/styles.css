@@ -1,4 +1,4 @@
-/* Global Styles */
+/* Global Reset and Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -6,254 +6,285 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-attachment: fixed;
+  color: #333;
+  line-height: 1.6;
   min-height: 100vh;
   padding: 20px;
-  color: #333;
 }
 
-/* Header Styling */
+/* Header Styles */
 h1 {
-  color: #fff;
-  font-size: 3.5rem;
-  text-align: center;
-  margin-bottom: 30px;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  color: #ffffff;
+  font-size: 3rem;
   font-weight: 700;
+  text-align: center;
+  margin: 20px 0 40px 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.5px;
 }
 
 h2 {
   color: #2c3e50;
-  margin-bottom: 15px;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 12px;
 }
 
-/* Post Styling */
+h3 {
+  color: #444;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Post Card Styles */
 .post {
-  background: linear-gradient(145deg, #ffffff, #f0f0f0);
-  border: none;
-  border-radius: 15px;
-  padding: 25px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 28px;
   margin: 20px auto;
   max-width: 800px;
-  box-shadow: 
-    0 10px 30px rgba(0,0,0,0.1),
-    0 1px 8px rgba(0,0,0,0.2);
   position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
 .post:hover {
   transform: translateY(-5px);
   box-shadow: 
-    0 15px 40px rgba(0,0,0,0.15),
-    0 5px 15px rgba(0,0,0,0.25);
+    0 16px 40px rgba(0, 0, 0, 0.15),
+    0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 .post h2 {
-  color: #e74c3c;
-  font-size: 1.3rem;
+  color: #6366f1;
+  font-size: 1.2rem;
   margin-bottom: 10px;
+  font-weight: 600;
 }
 
 .post h3 {
-  color: #2c3e50;
-  font-weight: 400;
-  line-height: 1.6;
-  margin-bottom: 20px;
-  font-size: 1.1rem;
+  color: #374151;
+  font-size: 1.05rem;
+  margin-bottom: 24px;
+  line-height: 1.7;
 }
 
-/* Button Styling */
+/* Button Styles */
 .button {
-  background: linear-gradient(45deg, #3498db, #2980b9);
-  color: white;
-  padding: 12px 20px;
-  border-radius: 25px;
-  text-decoration: none;
-  font-family: inherit;
-  font-weight: 600;
-  transition: all 0.3s ease;
   display: inline-block;
-  margin-right: 10px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+  transition: all 0.3s ease;
+  margin-right: 12px;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
 
 .button:hover {
-  background: linear-gradient(45deg, #2980b9, #3498db);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
 }
 
-.button:active {
-  transform: translateY(0);
+/* Edit button variant */
+.button[href*="/edit"] {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
 }
 
-/* Create New Post Button */
-a.button[href*="/new"] {
-  background: linear-gradient(45deg, #27ae60, #2ecc71);
-  box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+.button[href*="/edit"]:hover {
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+}
+
+/* Create new post button */
+.button[href*="/new"] {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  padding: 14px 28px;
   font-size: 1.1rem;
-  padding: 15px 30px;
   display: block;
   text-align: center;
-  max-width: 300px;
-  margin: 30px auto;
+  max-width: 250px;
+  margin: 50px auto;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
 }
 
-a.button[href*="/new"]:hover {
-  background: linear-gradient(45deg, #2ecc71, #27ae60);
-  box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+.button[href*="/new"]:hover {
+  background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
 }
 
-/* Edit Button */
-a.button[href*="/edit"] {
-  background: linear-gradient(45deg, #f39c12, #e67e22);
-  box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
-}
-
-a.button[href*="/edit"]:hover {
-  background: linear-gradient(45deg, #e67e22, #f39c12);
-  box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
-}
-
-/* Delete Button Form */
-form {
+/* Delete button form */
+form[action*="DELETE"] {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
+  top: 24px;
+  right: 24px;
   height: auto;
   width: auto;
 }
 
-form button {
-  background: linear-gradient(45deg, #e74c3c, #c0392b);
+form[action*="DELETE"] button {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
   border: none;
-  border-radius: 50%;
-  width: 45px;
-  height: 45px;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
 }
 
-form button:hover {
-  background: linear-gradient(45deg, #c0392b, #e74c3c);
+form[action*="DELETE"] button:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+  background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.5);
 }
 
-form button svg {
-  height: 24px;
-  width: 24px;
+form[action*="DELETE"] button svg {
+  height: 20px;
+  width: 20px;
   fill: white;
 }
 
-/* Form Styling for New Post and Edit Post */
-form:not([method="post"][action*="DELETE"]) {
-  position: static;
+/* Form Styles for New Post and Edit Post */
+form:not([action*="DELETE"]) {
   background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
   padding: 40px;
   margin: 20px auto;
-  max-width: 600px;
+  max-width: 800px;
+  width: 100%;
   box-shadow: 
-    0 15px 35px rgba(0,0,0,0.1),
-    0 5px 15px rgba(0,0,0,0.05);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+    0 16px 40px rgba(0, 0, 0, 0.1),
+    0 4px 16px rgba(0, 0, 0, 0.1);
+  position: static;
 }
 
 form h1 {
-  color: #2c3e50;
-  font-size: 2.5rem;
-  text-align: center;
+  color: #1f2937;
+  font-size: 2.2rem;
   margin-bottom: 30px;
+  text-align: center;
   text-shadow: none;
 }
 
 form h2 {
-  color: #34495e;
-  font-size: 1.2rem;
+  color: #374151;
+  font-size: 1.1rem;
+  font-weight: 600;
   margin-bottom: 10px;
-  margin-top: 20px;
+  margin-top: 24px;
 }
 
-/* Input and Textarea Styling */
+form h2:first-of-type {
+  margin-top: 0;
+}
+
+/* Input and Textarea Styles */
 textarea, input[type="text"] {
   width: 100%;
-  padding: 15px 20px;
-  border: 2px solid #e1e8ed;
-  border-radius: 12px;
+  padding: 16px 20px;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
   font-size: 1rem;
   font-family: inherit;
   transition: all 0.3s ease;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.9);
   resize: vertical;
   min-height: 50px;
 }
 
 textarea:focus, input[type="text"]:focus {
   outline: none;
-  border-color: #3498db;
-  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
-  background: #f8f9fa;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-1px);
 }
 
 textarea[name="content"] {
-  min-height: 120px;
+  min-height: 140px;
   line-height: 1.6;
 }
 
 textarea[name="username"] {
-  min-height: 60px;
+  min-height: 50px;
+  resize: none;
 }
 
 /* Submit Button in Forms */
-form button:not([type]), 
-form button[type="submit"] {
-  background: linear-gradient(45deg, #8e44ad, #9b59b6);
+form:not([action*="DELETE"]) button,
+form:not([action*="DELETE"]) Button {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
   color: white;
   border: none;
-  padding: 15px 40px;
-  border-radius: 25px;
+  padding: 16px 32px;
+  border-radius: 10px;
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: 20px;
+  margin-top: 30px;
   width: 100%;
-  box-shadow: 0 4px 15px rgba(142, 68, 173, 0.3);
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
 }
 
-form button:not([type]):hover, 
-form button[type="submit"]:hover {
-  background: linear-gradient(45deg, #9b59b6, #8e44ad);
+form:not([action*="DELETE"]) button:hover,
+form:not([action*="DELETE"]) Button:hover {
+  background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(142, 68, 173, 0.4);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
 }
 
-/* Show Page Specific Styling */
-body:has(.post h2:first-child:contains("id :")) {
-  background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+/* Show Page Specific Styles */
+body:has([href*="/styles.css"]) h2:first-of-type {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.4rem;
+  margin-bottom: 25px;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-.post h2:first-child {
+.post h2:contains("id :") {
+  color: #6b7280;
   font-size: 0.9rem;
-  color: #7f8c8d;
   font-weight: 400;
+  margin-bottom: 8px;
+}
+
+/* Page-specific body styles for forms */
+body:not(:has(.post)) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   body {
-    padding: 10px;
+    padding: 15px;
   }
   
   h1 {
@@ -261,18 +292,24 @@ body:has(.post h2:first-child:contains("id :")) {
   }
   
   .post {
-    margin: 15px 10px;
-    padding: 20px;
+    margin: 16px 10px;
+    padding: 24px;
   }
   
-  form:not([method="post"][action*="DELETE"]) {
-    padding: 25px;
+  form:not([action*="DELETE"]) {
+    padding: 32px;
     margin: 15px 10px;
+    max-width: 100%;
   }
   
   .button {
-    padding: 10px 16px;
-    font-size: 0.9rem;
+    padding: 12px 18px;
+    font-size: 0.85rem;
+  }
+  
+  form[action*="DELETE"] {
+    top: 20px;
+    right: 20px;
   }
 }
 
@@ -282,14 +319,45 @@ body:has(.post h2:first-child:contains("id :")) {
   }
   
   .post {
-    padding: 15px;
+    padding: 20px;
+    margin: 12px 5px;
   }
   
-  form:not([method="post"][action*="DELETE"]) {
-    padding: 20px;
+  form:not([action*="DELETE"]) {
+    padding: 24px;
+    max-width: 100%;
   }
   
   textarea, input[type="text"] {
-    padding: 12px 15px;
+    padding: 14px 16px;
+    font-size: 0.95rem;
   }
+  
+  .button {
+    display: block;
+    margin: 10px 0;
+    text-align: center;
+  }
+}
+
+/* Subtle animations and micro-interactions */
+.button:active {
+  transform: translateY(0);
+}
+
+form:not([action*="DELETE"]) button:active,
+form:not([action*="DELETE"]) Button:active {
+  transform: translateY(0);
+}
+
+/* Additional visual enhancements */
+.post::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px 12px 0 0;
 }
